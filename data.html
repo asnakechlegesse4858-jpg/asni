@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ሎካል ፋይል አክሰስ</title>
+</head>
+<body>
+
+    <div id="content">መረጃው እየተጫነ ነው...</div>
+
+    <script>
+        async function loadLocalData() {
+            try {
+                const response = await fetch('ftest.json');
+                const data = await response.json();
+                
+                document.getElementById("content").textContent = `ስም: ${data.name}, ከተማ: ${data.city}`;
+            } catch (error) {
+                document.getElementById("content").textContent = "ፋይሉን ማግኘት አልተቻለም";
+            }
+        }
+        
+        loadLocalData();
+    </script>
+     
+</body>
+</html>

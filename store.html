@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>የእኔ ኢ-ኮሜርስ መደብር</title>
+</head>
+<body>
+
+    <div id="product-list">ምርቶች በመጫን ላይ ናቸው...</div>
+
+    <script>
+        async function fetchProducts() {
+            try {
+                const response = await fetch('products.json');
+                const products = await response.json();
+                
+                let output = "<h2>የሚገኙ ምርቶች፡</h2><ul>";
+                products.forEach(product => {
+                    output += `<li>ስም፡ ${product.name} - ዋጋ፡ ${product.price} ብር</li>`;
+                });
+                output += "</ul>";
+                
+                document.getElementById("product-list").innerHTML = output;
+            } catch (error) {
+                document.getElementById("product-list").textContent = "ምርቶቹን ማግኘት አልተቻለም።";
+            }
+        }
+        
+        fetchProducts();
+
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+     
+</body>
+</html>
