@@ -13,11 +13,12 @@
     try{
         const response=await fetch('tr.json')
         const data=await response.json();
+         let output = "<h2></h2> <ul>"
         data.forEach(element => {
-        const output =`ስም፡ ${(element.name)} ${(element.price)}`
-        
-        });
-document.getElementById("product_list").innerHTML=output  
+
+            output +=`ስም፡ ${(element.name)} ${(element.price)}`
+        document.getElementById("product_list").innerHTML=output  
+        }) output +=''
     }
      catch(error){
         document.getElementById("product_list").textContent=`data is not found`
