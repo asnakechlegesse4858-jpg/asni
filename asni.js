@@ -1,6 +1,6 @@
 
 
 const person={
-    name:"mamush",age:23,grade:'undergraduate'
+    name:"mamush",age:18,grade:'elementery'
 }
 document.getElementById(p).textContent=person;
